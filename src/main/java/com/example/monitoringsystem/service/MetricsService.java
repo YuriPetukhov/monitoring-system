@@ -2,7 +2,6 @@ package com.example.monitoringsystem.service;
 
 import com.example.monitoringsystem.dto.MetricRequestDTO;
 import com.example.monitoringsystem.dto.MetricResponseDTO;
-import com.example.monitoringsystem.exception.MetricNotFoundException;
 
 import java.util.List;
 

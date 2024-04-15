@@ -7,10 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.DltHandler;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Component;
 
 @Slf4j
-@KafkaListener(id = "metrics-listener", topics = "metrics-topic")
+@Component
 @RequiredArgsConstructor
+@KafkaListener(id = "metrics-listener", topics = "metrics-topic")
 public class MetricsListener {
 
     private final MetricsService metricsService;

@@ -51,5 +51,4 @@ public class MetricsServiceImpl implements MetricsService {
         metricsRepository.save(metricMapper.toEntityMetric(requestDTO));
     }
 
-
 }
