@@ -26,11 +26,19 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.liquibase:liquibase-core'
 	implementation 'org.springframework.kafka:spring-kafka'
+	implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.2.20'
+	implementation group: 'io.swagger.core.v3', name: 'swagger-core', version: '2.2.20'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.3.0'
+	implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.5.5.Final'
+	implementation group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.5.5.Final'
+	implementation group: 'io.swagger', name: 'swagger-annotations', version: '1.5.21'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
+
 }
 
 tasks.named('test') {
