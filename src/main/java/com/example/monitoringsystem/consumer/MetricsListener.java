@@ -17,15 +17,26 @@ public class MetricsListener {
 
     private final MetricsService metricsService;
 
+    /**
+     * Обработка метрик.
+     *
+     * @param requestDTO Метрики.
+     */
     @KafkaHandler
     public void listen(MetricRequestDTO requestDTO) {
         log.info("Received metric: {}", requestDTO);
         metricsService.saveMetric(requestDTO);
     }
 
+    /**
+     * Обработка метрик, которые не удалось обработать.
+     *
+     * @param requestDTO Метрики.
+     */
     @DltHandler
     public void dltListen(MetricRequestDTO requestDTO) {
         log.warn("Received metric in DLT: {}", requestDTO);
     }
 }
+
 

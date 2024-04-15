@@ -18,6 +18,12 @@ public class MetricsProducerController {
 
     private final KafkaTemplate<Object, Object> template;
 
+    /**
+     * Отправка метрик работы приложения в формате JSON.
+     *
+     * @param requestDTO Метрики.
+     * @return Ответ.
+     */
     @PostMapping
     @Operation(summary = "Отправка метрик работы приложения в формате JSON")
     public ResponseEntity<?> sendMetrics(@RequestBody MetricRequestDTO requestDTO) {
@@ -26,4 +32,5 @@ public class MetricsProducerController {
         return ResponseEntity.ok().build();
     }
 }
+
 

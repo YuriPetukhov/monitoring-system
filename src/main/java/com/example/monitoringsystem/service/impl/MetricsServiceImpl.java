@@ -24,6 +24,13 @@ public class MetricsServiceImpl implements MetricsService {
     private final MetricsRepository metricsRepository;
     private final MetricMapper metricMapper;
 
+    /**
+     * Получение всех метрик.
+     *
+     * @param pageNumber Номер страницы.
+     * @param pageSize Размер страницы.
+     * @return Список метрик.
+     */
     @Override
     public List<MetricResponseDTO> getAllMetrics(Integer pageNumber, Integer pageSize) {
         log.info("list of metrics");
@@ -34,6 +41,13 @@ public class MetricsServiceImpl implements MetricsService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Получение метрики по идентификатору.
+     *
+     * @param id Идентификатор метрики.
+     * @return Метрика.
+     * @throws MetricNotFoundException Ошибка, если метрика не найдена.
+     */
     @Override
     public MetricResponseDTO getMetricById(Long id) {
         log.info("metric by Id");
@@ -45,6 +59,11 @@ public class MetricsServiceImpl implements MetricsService {
         }
     }
 
+    /**
+     * Сохранение метрики.
+     *
+     * @param requestDTO Метрика.
+     */
     @Override
     public void saveMetric(MetricRequestDTO requestDTO) {
         log.info("new metric {}", requestDTO.getName());
@@ -52,3 +71,4 @@ public class MetricsServiceImpl implements MetricsService {
     }
 
 }
+

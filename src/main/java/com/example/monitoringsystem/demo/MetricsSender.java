@@ -18,6 +18,11 @@ public class MetricsSender {
     @Value("${sender.endpoint}")
     private String endpoint;
 
+    /**
+     * Отправка метрики.
+     *
+     * @param metric Метрика.
+     */
     public void sendMetrics(MetricRequestDTO metric) {
 
         log.info("Sending metric: {}", metric);
@@ -40,3 +45,4 @@ public class MetricsSender {
         }
     }
 }
+

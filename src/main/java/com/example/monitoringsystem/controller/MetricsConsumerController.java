@@ -19,6 +19,13 @@ public class MetricsConsumerController {
 
     private final MetricsService metricsService;
 
+    /**
+     * Получение списка всех метрик.
+     *
+     * @param pageNumber Номер страницы.
+     * @param pageSize Размер страницы.
+     * @return Список метрик.
+     */
     @GetMapping
     @Operation(summary = "Получение списка всех метрик")
     public ResponseEntity<List<MetricResponseDTO>> getAllMetrics(
@@ -29,6 +36,12 @@ public class MetricsConsumerController {
         return ResponseEntity.ok().body(metrics);
     }
 
+    /**
+     * Получение конкретной метрики по ее идентификатору.
+     *
+     * @param id Идентификатор метрики.
+     * @return Метрика.
+     */
     @GetMapping("/{id}")
     @Operation(summary = "Получение конкретной метрики по ее идентификатору")
     public ResponseEntity<MetricResponseDTO> getMetricById(@PathVariable Long id) {
@@ -37,3 +50,4 @@ public class MetricsConsumerController {
         return ResponseEntity.ok().body(responseDTO);
     }
 }
+

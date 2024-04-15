@@ -17,6 +17,9 @@ public class MetricsGenerator {
     private final MetricsSender metricsSender;
     private final ScheduledExecutorService executorService;
 
+    /**
+     * Генерация и отправка метрик.
+     */
     @Scheduled(fixedRate = 1000)
     public void generateAndSendMetrics() {
         long currentTime = System.currentTimeMillis();
@@ -26,6 +29,12 @@ public class MetricsGenerator {
         executorService.schedule(() -> sendMetric("SendingToWarehouse", currentTime), 3, TimeUnit.SECONDS);
     }
 
+    /**
+     * Отправка метрики.
+     *
+     * @param operation Операция.
+     * @param time Время.
+     */
     private void sendMetric(String operation, double time) {
         MetricRequestDTO metric = new MetricRequestDTO();
         metric.setName(operation);
