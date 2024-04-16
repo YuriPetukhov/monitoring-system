@@ -1,4 +1,4 @@
-package com.example.monitoringsystem.logging;
+package com.example.monitoringsystem.demo.logging;
 
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;

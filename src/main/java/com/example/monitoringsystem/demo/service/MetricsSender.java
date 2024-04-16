@@ -1,4 +1,4 @@
-package com.example.monitoringsystem.demo;
+package com.example.monitoringsystem.demo.service;
 
 import com.example.monitoringsystem.dto.MetricRequestDTO;
 import lombok.RequiredArgsConstructor;

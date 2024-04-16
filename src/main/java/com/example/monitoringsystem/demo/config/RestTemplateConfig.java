@@ -1,4 +1,4 @@
-package com.example.monitoringsystem.config;
+package com.example.monitoringsystem.demo.config;
 
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;

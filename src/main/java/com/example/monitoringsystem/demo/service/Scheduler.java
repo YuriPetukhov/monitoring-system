@@ -1,5 +1,6 @@
-package com.example.monitoringsystem.demo;
+package com.example.monitoringsystem.demo.service;
 
+import com.example.monitoringsystem.demo.service.MetricsGenerator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

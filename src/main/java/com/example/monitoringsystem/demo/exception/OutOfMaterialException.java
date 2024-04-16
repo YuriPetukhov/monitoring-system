@@ -1,4 +1,4 @@
-package com.example.monitoringsystem.demo;
+package com.example.monitoringsystem.demo.exception;
 
 public class OutOfMaterialException extends RuntimeException {
     public OutOfMaterialException() {
