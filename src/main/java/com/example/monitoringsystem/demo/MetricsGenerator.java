@@ -29,6 +29,14 @@ public class MetricsGenerator {
     }
 
     /**
+     * Генерация сообщения об ошибке и его отправка.
+     */
+    public void generateAndSendError() {
+        log.error("Simulated error occurred!");
+        throw new OutOfMaterialException();
+    }
+
+    /**
      * Отправка метрики.
      *
      * @param operation Операция.

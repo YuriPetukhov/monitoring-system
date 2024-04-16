@@ -37,6 +37,16 @@ public class MetricsListener {
     public void dltListen(MetricRequestDTO requestDTO) {
         log.warn("Received metric in DLT: {}", requestDTO);
     }
+
+    /**
+     * Обработка сообщений об ошибках.
+     *
+     * @param errorMessage Сообщение об ошибке.
+     */
+    @KafkaListener(id = "error-listener", topics = "error-topic")
+    public void errorListen(String errorMessage) {
+        log.error("Error occurred: {}", errorMessage);
+    }
 }
 
 

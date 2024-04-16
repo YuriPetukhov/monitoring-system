@@ -20,4 +20,9 @@ public class Scheduler {
         metricsGenerator.generateAndSendMetrics();
     }
 
+    @Scheduled(fixedRate = 10000)
+    public void generateAndSendError() {
+        metricsGenerator.generateAndSendError();
+    }
+
 }

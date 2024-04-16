@@ -13,7 +13,7 @@ public class ErrorLoggingAspect {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    @AfterThrowing(pointcut = "execution(* com.example.monitoringsystem.service.*.*(..))", throwing = "ex")
+    @AfterThrowing(pointcut = "execution(* com.example.monitoringsystem.demo.*.*(..))", throwing = "ex")
     public void logError(Exception ex) {
         String errorMessage = "Error occurred: " + ex.getMessage();
         kafkaTemplate.send("error-topic", errorMessage);
