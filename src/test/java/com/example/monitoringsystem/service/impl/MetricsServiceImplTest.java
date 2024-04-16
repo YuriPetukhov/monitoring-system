@@ -2,6 +2,7 @@ package com.example.monitoringsystem.service.impl;
 
 import com.example.monitoringsystem.dto.MetricRequestDTO;
 import com.example.monitoringsystem.dto.MetricResponseDTO;
+import com.example.monitoringsystem.exception.MetricNotFoundException;
 import com.example.monitoringsystem.mapper.MetricMapper;
 import com.example.monitoringsystem.model.Metric;
 import com.example.monitoringsystem.repository.MetricsRepository;
@@ -55,6 +56,19 @@ public class MetricsServiceImplTest {
         assertEquals(expectedMetrics, actualMetrics);
     }
 
+    @Test
+    @DisplayName("Test getting of metrics list - empty list")
+    public void shouldReturnEmptyListWhenNoMetrics() {
+        Pageable pageable = PageRequest.of(0, 10);
+        PageImpl<Metric> page = new PageImpl<>(Collections.emptyList(), pageable, 0);
+
+        when(metricsRepository.findAll(pageable)).thenReturn(page);
+
+        List<MetricResponseDTO> actualMetrics = metricsService.getAllMetrics(1, 10);
+
+        assertEquals(Collections.emptyList(), actualMetrics);
+    }
+
 
     @Test
     @DisplayName("Test getting of the metric by id - successful")
@@ -71,6 +85,16 @@ public class MetricsServiceImplTest {
     }
 
     @Test
+    @DisplayName("Test throwing an exception by getting a not exiting metric - unsuccessful")
+    public void shouldThrowExceptionWhenMetricNotFound() {
+        Long id = 1L;
+
+        when(metricsRepository.findById(id)).thenReturn(Optional.empty());
+
+        assertThrows(MetricNotFoundException.class, () -> metricsService.getMetricById(id));
+    }
+
+    @Test
     @DisplayName("Test saving of a metric - successful")
     public void shouldSaveMetric() {
         MetricRequestDTO metricRequestDTO = new MetricRequestDTO();
@@ -82,4 +106,5 @@ public class MetricsServiceImplTest {
 
         verify(metricsRepository).save(metric);
     }
+
 }
