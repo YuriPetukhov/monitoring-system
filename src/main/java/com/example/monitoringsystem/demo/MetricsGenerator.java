@@ -29,7 +29,7 @@ public class MetricsGenerator {
     }
 
     /**
-     * Генерация сообщения об ошибке.
+     * Генерация ошибки.
      */
     public void generateAndSendError() {
         log.error("Simulated error occurred!");
