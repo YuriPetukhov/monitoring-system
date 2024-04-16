@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class Scheduler {
     private final MetricsGenerator metricsGenerator;
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 5000)
     public void generateAndSendMetrics() {
         metricsGenerator.generateAndSendMetrics();
     }
