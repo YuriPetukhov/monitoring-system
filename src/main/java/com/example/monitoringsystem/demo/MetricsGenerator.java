@@ -20,7 +20,7 @@ public class MetricsGenerator {
     /**
      * Генерация и отправка метрик.
      */
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 5000)
     public void generateAndSendMetrics() {
         long currentTime = System.currentTimeMillis();
         executorService.schedule(() -> sendMetric("MaterialAcquisition", currentTime), 0, TimeUnit.SECONDS);
