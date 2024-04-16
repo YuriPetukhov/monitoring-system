@@ -32,9 +32,14 @@ public class MetricsGenerator {
      * Генерация ошибки.
      */
     public void generateAndSendError() {
-        log.error("Simulated error occurred!");
-        throw new OutOfMaterialException();
+        try {
+            log.error("Simulated error occurred!");
+            throw new OutOfMaterialException();
+        } catch (OutOfMaterialException e) {
+            log.error("Caught OutOfMaterialException: {}", e.getMessage());
+        }
     }
+
 
     /**
      * Отправка метрики.
